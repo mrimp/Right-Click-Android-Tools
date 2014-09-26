@@ -11,7 +11,7 @@ FileCHK = gtk.CheckButton()
 FileCHKLab = gtk.Label()
 FileCHKLab.set_markup("Seaching in Files")
 
-LithidTmp = "/tmp/grepfile-Lithid"
+jlmancusoTmp = "/tmp/grepfile-jlmancuso"
 
 HERE = os.getcwd()
 
@@ -80,17 +80,17 @@ def actionDo(arg):
 		RUN = "Else"
 
 	new = 0
-	if os.path.exists(LithidTmp):
-		os.remove(LithidTmp)
+	if os.path.exists(jlmancusoTmp):
+		os.remove(jlmancusoTmp)
 
-	tmpfile = file(LithidTmp, 'w')
+	tmpfile = file(jlmancusoTmp, 'w')
 	print HERE
 	for i in grep(HERE, arg, RUN):
 		tmpfile.write("%s: %s\n" % (num[new], res[new]))
 		new += 1
 	tmpfile.close()
 
-	if os.path.exists(LithidTmp):
+	if os.path.exists(jlmancusoTmp):
 		subprocess.call(('xdg-open', LithidTmp))
 
 s = searchDial()

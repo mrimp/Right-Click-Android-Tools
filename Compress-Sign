@@ -8,21 +8,17 @@ VER=$(echo $CHK |cut -d"." -f1)
 }
 
 function_get_nautilus_version
-if [ ${VER} != "1" ] && [ ${VER} != "0" ]; then
-	SCRIPT_DIR="$HOME/.gnome2/nautilus-scripts/Lithid"
-else
-	SCRIPT_DIR="$HOME/Nautilus/scripts/Lithid"
-fi
+SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/jlmancuso"
 
 DIR="${SCRIPT_DIR}/"
 DATE=$(date +%Y%m%d_%H%M%S)
 
-zip -r Lithid-Compressed-Sign.zip *
-java -classpath ${DIR}/sign.jar testsign Lithid-Compressed-Sign.zip Lithid-Compressed-Sign.zip-signed-${DATE}
-rm Lithid-Compressed-Sign.zip
-if [ ! -f "Lithid-Compressed-Sign.zip-signed-${DATE}" ]; then
-	gdialog --title "Error" --msgbox "Lithid-Compressed-Sign.zip was not able to sign for some reason" 200 200
+zip -r ${PWD##*/}-Compressed-Sign.zip *
+java -classpath ${DIR}/sign.jar testsign ${PWD##*/}-Compressed-Sign.zip ${PWD##*/}-Compressed-Sign.zip-signed-${DATE}
+rm ${PWD##*/}-Compressed-Sign.zip
+if [ ! -f "${PWD##*/}-Compressed-Sign.zip-signed-${DATE}" ]; then
+	gdialog --title "Error" --msgbox "${PWD##*/}-Compressed-Sign.zip was not able to sign for some reason" 200 200
 else
-	gdialog --title "Success" --msgbox "Lithid-Compressed-Sign.zip-signed-${DATE} created" 200 200
+	gdialog --title "Success" --msgbox "${PWD##*/}-Compressed-Sign.zip-signed-${DATE} created" 200 200
 fi
 exit 0

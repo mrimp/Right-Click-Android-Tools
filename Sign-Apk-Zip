@@ -8,9 +8,7 @@ VER=$(echo $CHK |cut -d"." -f1)
 
 function_get_nautilus_version
 if [ ${VER} != "1" ] && [ ${VER} != "0" ]; then
-	SCRIPT_DIR="$HOME/.gnome2/nautilus-scripts/Lithid"
-else
-	SCRIPT_DIR="$HOME/Nautilus/scripts/Lithid"
+	SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/jlmancuso"
 fi
 
 DIR="${SCRIPT_DIR}/"
