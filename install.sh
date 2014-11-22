@@ -11,7 +11,7 @@ VER=$(echo $CHK |cut -d"." -f1)
 
 function_chk_script_dir() {
 function_get_nautilus_version
-SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/jlmancuso"
+SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/Apktool"
 if [ ! -d ${SCRIPT_DIR} ]; then
 	mkdir -p ${SCRIPT_DIR}
 fi

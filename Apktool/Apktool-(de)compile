@@ -9,7 +9,7 @@ VER=$(echo $CHK |cut -d"." -f1)
 
 function_get_nautilus_version
 if [ ${VER} != "1" ] && [ ${VER} != "0" ]; then
-	SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/jlmancuso"
+	SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/Apktool"
 fi
 
 DIR="${SCRIPT_DIR}/"
@@ -17,7 +17,7 @@ DIR="${SCRIPT_DIR}/"
 for arg in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS; do
 	if [ -d "${HOME}/apktool" ]; then
 		if [ -f "$arg" ]; then
-			apktool d $arg
+			apktool d -b -f $arg
 			gdialog --title "Success" --msgbox "${arg} has been decompiled!" 200 200
 		else
 			if [ -f "/tmp/building-apktool" ]; then

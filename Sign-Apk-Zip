@@ -8,7 +8,7 @@ VER=$(echo $CHK |cut -d"." -f1)
 
 function_get_nautilus_version
 if [ ${VER} != "1" ] && [ ${VER} != "0" ]; then
-	SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/jlmancuso"
+	SCRIPT_DIR="$HOME/.local/share/nautilus/scripts/Apktool"
 fi
 
 DIR="${SCRIPT_DIR}/"
